@@ -1,0 +1,9 @@
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\bin\Debug\IOC-with-Ninject.exe.config
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\bin\Debug\IOC-with-Ninject.exe
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\bin\Debug\IOC-with-Ninject.pdb
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\bin\Debug\Ninject.dll
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\bin\Debug\Ninject.pdb
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\bin\Debug\Ninject.xml
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\obj\x86\Debug\IOC-with-Ninject.exe
+C:\Users\jim.ballard\Documents\Projects\GitIOCNinject\IOC-with-Ninject\IOC-with-Ninject\obj\x86\Debug\IOC-with-Ninject.pdb
