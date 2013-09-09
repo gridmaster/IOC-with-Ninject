@@ -1,0 +1,9 @@
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\bin\Debug\IOCNinject.exe.config
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\bin\Debug\IOCNinject.exe
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\bin\Debug\IOCNinject.pdb
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\bin\Debug\Ninject.dll
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\bin\Debug\Ninject.pdb
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\bin\Debug\Ninject.xml
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\obj\x86\Debug\IOCNinject.exe
+C:\Users\jim.ballard\Documents\Projects\IOCNinject\IOCNinject\obj\x86\Debug\IOCNinject.pdb
