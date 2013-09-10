@@ -7,11 +7,29 @@ namespace IOC_with_Ninject
 {
     internal class Program
     {
+        #region contracts
+        // these are the interfaces we are coding to and which
+        // Ninject will use to bind implementations to.
+        // they are deliberately simple to focus on the pattern
         public interface IGuitar
         {
             void Play();
         }
 
+        public interface IGuitarService
+        {
+            void Play();
+        }
+
+        public interface ILogger
+        {
+            void WriteLog(string message);
+        }
+        #endregion contracts
+
+        #region Modles
+        // here are our Modles. In the real world
+        // they would likely have properties as well.
         public class Fender : IGuitar
         {
             public void Play()
@@ -37,20 +55,11 @@ namespace IOC_with_Ninject
                 return "Gibson";
             }
         }
+        #endregion Guitars
 
-        public interface ILogger
-        {
-            void WriteLog(string message);
-        }
-
-        public class Log : ILogger
-        {
-            public void WriteLog(string message)
-            {
-                Console.WriteLine(DateTime.Now + ": " + message);
-            }
-        }
-
+        #region base classes
+        // Only one to demonstrate the power of 
+        // DI and IOC
         public class BaseService
         {
             public ILogger logger;
@@ -60,12 +69,21 @@ namespace IOC_with_Ninject
                 this.logger = log;
             }
         }
+        #endregion base classes
 
-        public interface IGuitarService
+        #region Logging
+        // simple but necessary for any serious code.
+        public class Log : ILogger
         {
-            void Play();
+            public void WriteLog(string message)
+            {
+                Console.WriteLine(DateTime.Now + ": " + message);
+            }
         }
+        #endregion Logging
 
+        #region services
+        // again only one, but serves our purposes
         public class GuitarService : BaseService, IGuitarService
         {
             private readonly IGuitar _guitar;
@@ -83,6 +101,7 @@ namespace IOC_with_Ninject
                 logger.WriteLog("Logging that we played a " + _guitar.ToString());
             }
         }
+        #endregion services
 
         #region Mocks
         // Mocks here - these are used to demonstarte how you can test or 
@@ -166,7 +185,7 @@ namespace IOC_with_Ninject
         }
         #endregion Initialize DI Container
 
-        // get 'er done module...
+        // the "get 'er done" module...
         // The 'Old way' has 3 'new' statements. Yikes.
         // The 'New way' has none. Sweet!
         private static void Main(string[] args)
