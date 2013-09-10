@@ -84,6 +84,9 @@ namespace IOC_with_Ninject
             }
         }
 
+        #region Mocks
+        // Mocks here - these are used to demonstarte how you can test or 
+        // completely refactor your code with a simple change
         public class MockGuitarService : BaseService, IGuitarService
         {
             private readonly IGuitar _guitar;
@@ -122,7 +125,12 @@ namespace IOC_with_Ninject
                 Trace.WriteLine(DateTime.Now + ": " + message);
             }
         }
+        #endregion Mocks
 
+        #region Bind Modules for Ninject
+        // Swap between these to modules to refactor code.
+        // NOTE: both must implement NinjectModule and 
+        //  override the Load method
         public class BindModule : NinjectModule
         {
             public override void Load()
@@ -142,7 +150,11 @@ namespace IOC_with_Ninject
                 Bind<IGuitarService>().To<MockGuitarService>();
             }
         }
+        #endregion Bind Modules for Ninject
 
+        #region Initialize DI Container
+        // This initializes the IOC Container and implementes
+        // the singleton pattern.
         private static void InitializeDiContainer()
         {
             NinjectSettings settings = new NinjectSettings
@@ -150,9 +162,13 @@ namespace IOC_with_Ninject
                     LoadExtensions = false
                 };
 
-            IOCContainer.Instance.Initialize(settings, new BindModule());
+            IOCContainer.Instance.Initialize(settings, new MockModule());
         }
+        #endregion Initialize DI Container
 
+        // get 'er done module...
+        // The 'Old way' has 3 'new' statements. Yikes.
+        // The 'New way' has none. Sweet!
         private static void Main(string[] args)
         {
             Console.WriteLine("Old way...");
