@@ -27,7 +27,7 @@ namespace IOC_with_Ninject
         }
         #endregion contracts
 
-        #region Modles
+        #region modles
         // here are our Modles. In the real world
         // they would likely have properties as well.
         public class Fender : IGuitar
@@ -71,7 +71,7 @@ namespace IOC_with_Ninject
         }
         #endregion base classes
 
-        #region Logging
+        #region logging
         // simple but necessary for any serious code.
         public class Log : ILogger
         {
@@ -103,7 +103,7 @@ namespace IOC_with_Ninject
         }
         #endregion services
 
-        #region Mocks
+        #region mocks
         // Mocks here - these are used to demonstarte how you can test or 
         // completely refactor your code with a simple change
         public class MockGuitarService : BaseService, IGuitarService
@@ -146,7 +146,7 @@ namespace IOC_with_Ninject
         }
         #endregion Mocks
 
-        #region Bind Modules for Ninject
+        #region bind modules for ninject
         // Swap between these to modules to refactor code.
         // NOTE: both must implement NinjectModule and 
         //  override the Load method
@@ -171,8 +171,8 @@ namespace IOC_with_Ninject
         }
         #endregion Bind Modules for Ninject
 
-        #region Initialize DI Container
-        // This initializes the IOC Container and implementes
+        #region initialize DI container
+        // This initializes the IOC Container and implements
         // the singleton pattern.
         private static void InitializeDiContainer()
         {
@@ -181,6 +181,7 @@ namespace IOC_with_Ninject
                     LoadExtensions = false
                 };
 
+            // change this to BindModule to run other implementation
             IOCContainer.Instance.Initialize(settings, new MockModule());
         }
         #endregion Initialize DI Container
