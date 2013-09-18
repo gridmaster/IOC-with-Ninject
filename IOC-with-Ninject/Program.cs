@@ -30,6 +30,25 @@ namespace IOC_with_Ninject
         #region models
         // here are our Models. In the real world
         // they would likely have properties as well.
+        public class Guitar : IGuitar
+        {
+            private string _name ;
+            public Guitar(string name)
+            {
+                _name = name;
+            }
+
+            public void Play()
+            {
+                Console.WriteLine("I'm strummin' my {0}!", this.ToString());
+            }
+
+            public override string ToString()
+            {
+                return _name;
+            }
+        }
+
         public class Fender : IGuitar
         {
             public void Play()
@@ -77,7 +96,7 @@ namespace IOC_with_Ninject
         {
             public void WriteLog(string message)
             {
-                Console.WriteLine(DateTime.Now + ": " + message);
+                Console.WriteLine("\n" + DateTime.Now + ": " + message);
             }
         }
         #endregion Logging
@@ -155,7 +174,7 @@ namespace IOC_with_Ninject
             public override void Load()
             {
                 Bind<ILogger>().To<Log>();
-                Bind<IGuitar>().To<Fender>();
+                Bind<IGuitar>().To<Guitar>().WithConstructorArgument("name", "Ding-Dong");
                 Bind<IGuitarService>().To<GuitarService>();
             }
         }
@@ -182,7 +201,7 @@ namespace IOC_with_Ninject
                 };
 
             // change this to BindModule to run other implementation
-            IOCContainer.Instance.Initialize(settings, new MockModule());
+            IOCContainer.Instance.Initialize(settings, new BindModule());
         }
         #endregion Initialize DI Container
 
@@ -192,8 +211,12 @@ namespace IOC_with_Ninject
         private static void Main(string[] args)
         {
             Console.WriteLine("Old way...");
-            var gserve = new GuitarService(new Gibson(), new Log());
+            var gserve = new GuitarService(new Guitar("Gibson"), new Log());
             gserve.Play();
+
+            var gservice = new GuitarService(new Guitar("Martin"), new Log());
+            gservice.Play();
+
 
             Console.WriteLine("\nNew way...");
             InitializeDiContainer();
