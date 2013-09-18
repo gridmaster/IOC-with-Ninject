@@ -28,8 +28,9 @@ namespace IOC_with_Ninject
         #endregion contracts
 
         #region models
-        // here are our Models. In the real world
-        // they would likely have properties as well.
+        // here are our Models. I've replaced the 2 
+        // guitars with this one. In the real world they
+        // would likely have more properties and such.
         public class Guitar : IGuitar
         {
             private string _name ;
@@ -49,32 +50,7 @@ namespace IOC_with_Ninject
             }
         }
 
-        public class Fender : IGuitar
-        {
-            public void Play()
-            {
-                Console.WriteLine("I'm strummin' my Fender!");
-            }
-
-            public override string ToString()
-            {
-                return "Fender";
-            }
-        }
-
-        public class Gibson : IGuitar
-        {
-            public void Play()
-            {
-                Console.WriteLine("I'm strummin' my Gibson!");
-            }
-
-            public override string ToString()
-            {
-                return "Gibson";
-            }
-        }
-        #endregion Guitars
+        #endregion models
 
         #region base classes
         // Only one to demonstrate the power of 
@@ -147,7 +123,7 @@ namespace IOC_with_Ninject
         {
             public void Play()
             {
-                Console.WriteLine("I'm playing air guitar");
+                Console.WriteLine("I'm playing {0}", this.ToString());
             }
 
             public override string ToString()
@@ -174,7 +150,7 @@ namespace IOC_with_Ninject
             public override void Load()
             {
                 Bind<ILogger>().To<Log>();
-                Bind<IGuitar>().To<Guitar>().WithConstructorArgument("name", "Ding-Dong");
+                Bind<IGuitar>().To<Guitar>().WithConstructorArgument("name", "Fender");
                 Bind<IGuitarService>().To<GuitarService>();
             }
         }
@@ -201,7 +177,7 @@ namespace IOC_with_Ninject
                 };
 
             // change this to BindModule to run other implementation
-            IOCContainer.Instance.Initialize(settings, new BindModule());
+            IOCContainer.Instance.Initialize(settings, new MockModule());
         }
         #endregion Initialize DI Container
 
