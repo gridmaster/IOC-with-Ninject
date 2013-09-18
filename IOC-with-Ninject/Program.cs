@@ -27,8 +27,8 @@ namespace IOC_with_Ninject
         }
         #endregion contracts
 
-        #region modles
-        // here are our Modles. In the real world
+        #region models
+        // here are our Models. In the real world
         // they would likely have properties as well.
         public class Fender : IGuitar
         {
